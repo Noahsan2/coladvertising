@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación Fallida</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            border-top: 5px solid #dc3545; /* Línea roja indicando error */
+        }
+
+        .icon-error {
+            color: #dc3545;
+            font-size: 60px;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .subtext {
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .tips-container {
+            background-color: #fff5f5; /* Fondo rojo muy suave */
+            border-radius: 12px;
+            padding: 20px 25px;
+            text-align: left;
+            margin-bottom: 30px;
+            border: 1px solid #ffe0e0;
+        }
+
+        .tips-list {
+            margin: 0;
+            padding-left: 20px;
+            color: #555;
+        }
+
+        .tips-list li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        /* Estilo del botón (Coincidiendo con el estilo de index.html) */
+        .btn-retry {
+            background-color:#E1111C; /* Color rojo principal */
+            color: white;
+            border: none;
+            padding: 15px 30px; /* Tamaño grande */
+            border-radius: 30px; /* Bordes muy redondeados */
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%; /* Ancho completo */
+            display: block;
+        }
+
+        .btn-retry:hover {
+            background-color: #c90f19; /* Rojo más oscuro al pasar el mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="icon-error">×</div>
+        
+        <h1>Verificación fallida</h1>
+        <p class="subtext">Por favor, intente de nuevo.</p>
+
+        <div class="tips-container">
+            <ul class="tips-list">
+                <li><strong>Limpia la cámara</strong> de tu celular antes de intentar.</li>
+                <li>Recuerda <strong>no utilizar</strong> gorra, sombreros, gafas, tapabocas ni accesorios que oculten tu rostro.</li>
+                <li>Busca un <strong>lugar iluminado</strong> e intenta capturar la mejor toma posible.</li>
+            </ul>
+        </div>
+
+        <button class="btn-retry" onclick="window.location.href='comprobando2.html'">Intentar de Nuevo</button>
+    </div>
+</body>
+</html>
