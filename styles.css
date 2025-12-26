@@ -1,0 +1,692 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Formas abstractas de fondo */
+body::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    border-radius: 50% 0 50% 50%;
+    opacity: 0.6;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(45deg, #f0f0f0 0%, #e0e0e0 100%);
+    border-radius: 50% 50% 0 50%;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 2cm;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.logo img {
+    width: 280px;
+    max-width: 100%;
+    height: auto;
+}
+
+.greeting {
+    text-align: left;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.greeting h1 {
+    font-size: 28px;
+    font-weight: normal;
+    color: #000000;
+    margin-bottom: 6px;
+}
+
+.greeting p {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000000;
+}
+
+form {
+    width: 100%;
+    max-width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: #4B4B4B;
+    margin-bottom: 8px;
+}
+
+.form-group select,
+.form-group input[type="tel"],
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 14px 12px;
+    border: 1px solid #969696;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: #4B4B4B;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath fill='%234B4B4B' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px;
+}
+
+.form-group input[type="tel"],
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    background-image: none;
+}
+
+.form-group select:focus,
+.form-group input[type="tel"]:focus,
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+    outline: none;
+    border-color: #DC143C;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #969696;
+    border-radius: 3px;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.checkbox-group input[type="checkbox"]:checked {
+    background-color: #DC143C;
+    border-color: #DC143C;
+}
+
+.checkbox-group input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    color: #000000;
+    cursor: pointer;
+    margin: 0;
+}
+
+.btn-continue {
+    width: 100%;
+    padding: 10px;
+    background-color: #DC143C;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+}
+
+.btn-continue:hover {
+    background-color: #B8122E;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.forgot-password a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.disclaimer {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    z-index: 2;
+}
+
+.disclaimer img {
+    height: auto;
+    max-width: 300px;
+    width: auto;
+    display: block;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center center;
+    -webkit-transform: translateY(-50%) rotate(-90deg);
+    -moz-transform: translateY(-50%) rotate(-90deg);
+    -ms-transform: translateY(-50%) rotate(-90deg);
+}
+
+/* Estilos específicos de sel.html */
+/* Ajuste para PC - subir el contenido 2cm */
+body.verification-page .container {
+    margin-top: 0cm;
+}
+
+.verification-area {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    max-width: 100%;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 1cm;
+    margin-bottom: 30px;
+    border: 4px solid #DC143C;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+/* Ajuste para PC - hacer el círculo más pequeño */
+@media (min-width: 769px) {
+    .video-container {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+.video-container.loading {
+    border: 4px solid rgba(220, 20, 60, 0.1);
+    position: relative;
+    overflow: visible;
+}
+
+.video-container.loading::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid #DC143C;
+    border-right: 4px solid rgba(220, 20, 60, 0.6);
+    border-bottom: 4px solid rgba(220, 20, 60, 0.15);
+    border-left: 4px solid transparent;
+    animation: spinner-border 1s linear infinite;
+    z-index: 10;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.video-container.loading video,
+.video-container.loading .video-placeholder {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes spinner-border {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.video-container.success {
+    border: 4px solid #28a745;
+    animation: none;
+}
+
+.video-container.error {
+    border: 4px solid #DC143C;
+    animation: none;
+}
+
+#videoElement {
+    width: 120%;
+    height: 120%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(-1);
+    /* scaleX(-1) corrige el efecto espejo de la cámara frontal */
+    /* Ocultar controles nativos del navegador */
+    pointer-events: none;
+    /* Forzar ocultación de controles */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Overlay transparente para bloquear interacciones con controles */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: auto;
+    border-radius: 50%;
+    background: transparent;
+}
+
+/* Ocultar completamente todos los controles nativos del video - Estilos globales */
+video::-webkit-media-controls {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+video::-webkit-media-controls-panel {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+video::-webkit-media-controls-play-button {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Ocultar el botón overlay de play/pause que aparece en el centro - CRÍTICO */
+video::-webkit-media-controls-overlay-play-button {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+}
+
+/* Estilos específicos para el videoElement */
+#videoElement::-webkit-media-controls {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+#videoElement::-webkit-media-controls-enclosure {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+#videoElement::-webkit-media-controls-panel {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+#videoElement::-webkit-media-controls-play-button {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+#videoElement::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+#videoElement::-webkit-media-controls-overlay-play-button {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+}
+
+/* Ocultar controles en otros navegadores */
+video::-moz-media-controls,
+#videoElement::-moz-media-controls {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Ocultar todos los controles del contenedor de video */
+.video-container video::-webkit-media-controls-overlay-enclosure {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Asegurar que cualquier pseudo-elemento de controles esté oculto */
+.video-container video::before,
+.video-container video::after {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+.video-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #4B4B4B;
+}
+
+.video-placeholder svg {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.video-placeholder p {
+    font-size: 14px;
+    text-align: center;
+    color: #4B4B4B;
+    padding: 0 20px;
+}
+
+.face-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    height: 260px;
+    border: 3px solid rgba(220, 20, 60, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.face-overlay.active {
+    opacity: 1;
+}
+
+.status-message {
+    text-align: center;
+    font-size: 14px;
+    color: #4B4B4B;
+    margin-bottom: 20px;
+    min-height: 20px;
+}
+
+.status-message.success {
+    color: #28a745;
+}
+
+.status-message.error {
+    color: #DC143C;
+}
+
+.btn-take-photo {
+    width: 100%;
+    max-width: 300px;
+    padding: 14px;
+    background-color: #DC143C;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1.5cm;
+    margin-bottom: 20px;
+}
+
+.btn-take-photo:hover {
+    background-color: #B8122E;
+}
+
+.btn-take-photo:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.btn-start {
+    width: 100%;
+    max-width: 300px;
+    padding: 14px;
+    background-color: #DC143C;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+}
+
+.btn-start:hover {
+    background-color: #B8122E;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 2cm;
+    margin-bottom: 30px;
+}
+
+.back-link a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    body::before {
+        width: 200px;
+        height: 140px;
+        top: -20px;
+        right: -20px;
+        border-radius: 0 0 0 200px;
+    }
+
+    body::after {
+        width: 170px;
+        height: 120px;
+        bottom: calc(-20px + 0.5cm);
+        left: -20px;
+        border-radius: 0 200px 0 0;
+    }
+
+    .disclaimer {
+        display: none;
+    }
+
+    .container {
+        padding: 20px;
+        max-width: 100%;
+        margin-top: -5cm;
+    }
+
+    /* Ajuste específico para sel.html - bajar todo más para que se vea el logo */
+    body.verification-page .container {
+        margin-top: 1cm;
+    }
+    
+    /* Asegurar que el logo sea visible en sel.html */
+    body.verification-page .logo {
+        margin-bottom: 10px;
+    }
+
+    .greeting h1 {
+        font-size: 24px;
+    }
+
+    .greeting p {
+        font-size: 24px;
+    }
+
+    .form-group select,
+    .form-group input[type="tel"],
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+        font-size: 16px;
+        padding: 14px 12px;
+        border-radius: 10px;
+    }
+
+    .btn-continue {
+        padding: 14px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 50px;
+        width: 60% !important;
+        max-width: 60%;
+        display: block;
+        margin: 0 auto;
+        background-color: #DC143C;
+        color: #ffffff;
+    }
+
+    .logo img {
+        width: 220px;
+        max-width: 100%;
+    }
+
+    .video-container {
+        width: 260px;
+        height: 260px;
+    }
+
+    .face-overlay {
+        width: 220px;
+        height: 220px;
+    }
+}
